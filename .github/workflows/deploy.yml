@@ -13,9 +13,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-      - name: Build
-        run: docker build -t stalker .
+      - name: Docker Hub Login
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USER}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - name: Create Tag
         run: docker tag stalker oncom/stalker:1.0.0
       - name: Push
-        run: docker push oncom/stalker:1.0.0
+        run: docker push ${{secrets.DOCKER_USER}}/stalker:1.0.0
