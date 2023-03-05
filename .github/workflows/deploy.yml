@@ -41,5 +41,5 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: oncom/stalker:${{ env.BRANCH }}
+          #tags: oncom/stalker:${{ env.BRANCH }}
           labels: ${{ steps.meta.outputs.labels }}
