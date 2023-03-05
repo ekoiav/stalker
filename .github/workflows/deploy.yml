@@ -16,7 +16,7 @@ jobs:
           node-version: '16'
 
       - name: Docker Hub Login
-        with:
+        env:
           DOCKER_USER: ${{secrets.DOCKER_USER}}
           DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
         run: |
