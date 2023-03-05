@@ -8,11 +8,11 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/ekoiav/stalker/api/auth"
+	"github.com/ekoiav/stalker/api/models"
+	"github.com/ekoiav/stalker/api/responses"
+	"github.com/ekoiav/stalker/api/utils/formaterror"
 	"github.com/gorilla/mux"
-	"github.com/victorsteven/fullstack/api/auth"
-	"github.com/victorsteven/fullstack/api/models"
-	"github.com/victorsteven/fullstack/api/responses"
-	"github.com/victorsteven/fullstack/api/utils/formaterror"
 )
 
 func (server *Server) CreateUser(w http.ResponseWriter, r *http.Request) {
