@@ -1,6 +1,7 @@
 package api
 
 import (
+	"log"
 	"os"
 
 	"github.com/ekoiav/stalker/api/controllers"
@@ -26,7 +27,16 @@ func Run() {
 	//	fmt.Println("We are getting the env values")
 	//}
 
+	log.Println(os.Getenv("DB_DRIVER"))
+	log.Println(os.Getenv("DB_USER"))
+	log.Println(os.Getenv("DB_PASSWORD"))
+	log.Println(os.Getenv("DB_PORT"))
+	log.Println(os.Getenv("DB_HOST"))
+	log.Println(os.Getenv("DB_NAME"))
+
 	server.Initialize(os.Getenv("DB_DRIVER"), os.Getenv("DB_USER"), os.Getenv("DB_PASSWORD"), os.Getenv("DB_PORT"), os.Getenv("DB_HOST"), os.Getenv("DB_NAME"))
+
+	log.Println("oncom")
 
 	seed.Load(server.DB)
 
